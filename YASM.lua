@@ -8,6 +8,7 @@ yasm:RegisterEvent("CALENDAR_UPDATE_PENDING_INVITES")
 Minimap:ClearAllPoints()
 Minimap:SetPoint("CENTER", UIParent, "CENTER", 15, 15)
 MinimapCluster:EnableMouse(false)
+Minimap:SetClampedToScreen()
 MinimapZoomIn:Hide()
 MinimapZoomOut:Hide()
 MinimapBorder:Hide()
@@ -19,6 +20,13 @@ MiniMapLFGFrameBorder:Hide()
 MiniMapBattlefieldBorder:Hide()
 MiniMapMailBorder:Hide()
 Minimap:SetMaskTexture([=[Interface\ChatFrame\ChatFrameBackground]=])
+
+--borders
+Minimap:SetBackdrop({
+	bgFile = [=[Interface\ChatFrame\ChatFrameBackground]=], 
+	insets = {left = -2, right = -2, top = -2, bottom = -2}
+})
+Minimap:SetBackdropColor(0, 0, 0)
 
 --title
 MinimapZoneTextButton:SetParent(Minimap)
@@ -41,6 +49,7 @@ MiniMapTrackingIcon:SetTexCoord(0.065, 0.935, 0.065, 0.935)
 MiniMapLFGFrame:ClearAllPoints()
 MiniMapLFGFrame:SetParent(Minimap)
 MiniMapLFGFrame:SetPoint('TOPRIGHT', 2, -2)
+LFDSearchStatus:SetClampedToScreen(true)
 
 --bg
 MiniMapBattlefieldFrame:ClearAllPoints()
@@ -83,4 +92,8 @@ function yasm:CALENDAR_UPDATE_PENDING_INVITES()
 	else
 		TimeManagerClockTicker:SetTextColor(1, 1, 1)
 	end
+end
+
+function GetMinimapShape()
+	return 'SQUARE'
 end

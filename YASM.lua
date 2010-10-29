@@ -14,13 +14,15 @@ MinimapBorderTop:Hide()
 MinimapNorthTag:SetAlpha(0)
 MiniMapWorldMapButton:Hide()
 GameTimeFrame:Hide()
+MiniMapLFGFrameBorder:Hide()
+MiniMapBattlefieldBorder:Hide()
 Minimap:SetMaskTexture([=[Interface\ChatFrame\ChatFrameBackground]=])
 
 --title
 MinimapZoneTextButton:SetParent(Minimap)
 MinimapZoneTextButton:SetPoint('TOP', Minimap, 0, 16)
 MinimapZoneTextButton:SetFrameStrata("LOW")
-MinimapZoneText:SetShadowOffset(0, 0)	
+MinimapZoneText:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
 MinimapZoneText:SetAllPoints(MinimapZoneTextButton)
 
 --tracking
@@ -34,12 +36,22 @@ MiniMapTrackingIconOverlay:SetTexture(nil)
 MiniMapTrackingIcon:SetTexCoord(0.065, 0.935, 0.065, 0.935)
 
 --lfg
+MiniMapLFGFrame:ClearAllPoints()
+MiniMapLFGFrame:SetParent(Minimap)
+MiniMapLFGFrame:SetPoint('TOPRIGHT', 2, -2)
 
 --bg
+MiniMapBattlefieldFrame:ClearAllPoints()
+MiniMapBattlefieldFrame:SetParent(Minimap)
+MiniMapBattlefieldFrame:SetPoint('TOPRIGHT', 2, -2)
 
 --clock
 TimeManager_LoadUI()
 TimeManagerClockButton:GetRegions():Hide()
+TimeManagerClockButton:ClearAllPoints()
+TimeManagerClockButton:SetPoint("BOTTOM", Minimap, "BOTTOM", 0, -5)
+TimeManagerClockTicker:SetPoint('CENTER', TimeManagerClockButton)
+TimeManagerClockTicker:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
 
 --mail
 

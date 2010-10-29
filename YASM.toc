@@ -1,0 +1,7 @@
+﻿## Interface: 40000
+## Author: dr.dead
+## Title: YASM
+## Notes: Yet another square minimap, nothing new, made for myself.
+## Version: 0.01
+
+YASM.lua
